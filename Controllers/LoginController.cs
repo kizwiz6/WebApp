@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApp.Models;
+using WebApp.Models.Services;
 
 namespace WebApp.Controllers
 {
@@ -18,8 +19,10 @@ namespace WebApp.Controllers
         /// <returns></returns>
         public IActionResult ProcessLogin(UserModel userModel)
         {
-            // Verify that we got the right username and password.
-            if (userModel.UserName == "Kieran" && userModel.Password == "Emery")
+            // A new security service to validate a username and password.
+            SecurityService securityService = new SecurityService();
+
+            if (securityService.IsValid(userModel))
             {
                 return View("LoginSuccess", userModel); // if successful, send to loginsuccess page
             }
