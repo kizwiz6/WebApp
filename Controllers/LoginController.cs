@@ -4,6 +4,9 @@ using WebApp.Models.Services;
 
 namespace WebApp.Controllers
 {
+    /// <summary>
+    /// LoginController to manage user authetnitcation.
+    /// </summary>
     public class LoginController : Controller
     {
         public IActionResult Index()
