@@ -1,19 +1,22 @@
 ﻿namespace WebApp.Models.Services
 {
     /// <summary>
-    /// Authenticate teh user.
+    /// Authenticate the user.
     /// </summary>
     public class SecurityService
     {
         List<UserModel> knownUsers = new List<UserModel>();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SecurityService"/> class.
+        /// </summary>
         public SecurityService()
         {
-            knownUsers.Add(new UserModel { Id = 0, UserName = "Kieran", Password = "Emery" });
-            knownUsers.Add(new UserModel { Id = 1, UserName = "BillGates", Password = "bigbucks" });
-            knownUsers.Add(new UserModel { Id = 2, UserName = "MarieCurie", Password = "radioactive" });
-            knownUsers.Add(new UserModel { Id = 3, UserName = "WatsonCrick", Password = "dna" });
-            knownUsers.Add(new UserModel { Id = 4, UserName = "AlexanderFlemming", Password = "penicillin" });
+            this.knownUsers.Add(new UserModel { Id = 0, UserName = "Kieran", Password = "Emery" });
+            this.knownUsers.Add(new UserModel { Id = 1, UserName = "BillGates", Password = "bigbucks" });
+            this.knownUsers.Add(new UserModel { Id = 2, UserName = "MarieCurie", Password = "radioactive" });
+            this.knownUsers.Add(new UserModel { Id = 3, UserName = "WatsonCrick", Password = "dna" });
+            this.knownUsers.Add(new UserModel { Id = 4, UserName = "AlexanderFlemming", Password = "penicillin" });
         }
 
         /// <summary>
@@ -25,7 +28,7 @@
         {
             // Return true if user is found in the list.
             // For each item x in the list is there a match
-            return knownUsers.Any(x => x.UserName == user.UserName && x.Password == user.Password);
+            return this.knownUsers.Any(x => x.UserName == user.UserName && x.Password == user.Password);
         }
     }
 }
